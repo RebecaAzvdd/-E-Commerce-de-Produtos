@@ -45,6 +45,8 @@
                     <th>Descrição</th>
                     <th>Preço</th>
                     <th>Quantidade</th>
+                    <th>Ações</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody id="tabelaProdutos">
@@ -53,6 +55,14 @@
                     <td th:text="${produto.descricao}"></td>
                     <td th:text="${produto.preco}"></td>
                     <td th:text="${produto.quantidadeEstoque}"></td>
+                    <td> <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" >Editar</a></td>
+                    
+                     
+                    <td>
+                        <form th:action="@{/produtos/remover/{id}(id=${produto.id})}" method="post" style="display:inline;">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>

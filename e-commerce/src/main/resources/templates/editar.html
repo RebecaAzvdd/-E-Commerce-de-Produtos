@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/script.js"></script>
+        <title>Editar Produto</title>
+    </head>
+    <body>
+        <div class="modal-background">
+            <div class="modal">
+                <div class="description">
+                    <h1>Editar Produto</h1>
+                </div>
+                <div class="form-area">
+                    <!-- O formulário de edição, com os dados do produto carregados nos campos -->
+                    <form th:action="@{/produtos/editar}" method="post" onsubmit="return validarProduto()">
+                        <input type="hidden" id="id" name="id" th:value="${produto.id}">
+
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" th:value="${produto.nome}" required>
+                        <span class="error" id="nomeError"></span>
+
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" id="descricao" name="descricao" th:value="${produto.descricao}" required>
+                        <span class="error" id="descricaoError"></span>
+
+                        <label for="preco">Preço:</label>
+                        <input type="number" id="preco" name="preco" step="0.01" th:value="${produto.preco}" required>
+                        <span class="error" id="precoError"></span>
+
+                        <label for="quantidadeEstoque">Quantidade:</label>
+                        <input type="number" id="quantidadeEstoque" name="quantidadeEstoque" th:value="${produto.quantidadeEstoque}" required>
+                        <span class="error" id="quantidadeError"></span>
+
+                        <button type="submit">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

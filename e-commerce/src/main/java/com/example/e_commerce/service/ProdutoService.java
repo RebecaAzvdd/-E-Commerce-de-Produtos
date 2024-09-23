@@ -24,4 +24,16 @@ public class ProdutoService {
     public Produto adicionarProduto(Produto produto) {
         return produtoRepository.save(produto);
     }
+    
+    public void removerProduto(Long id) {
+    produtoRepository.deleteById(id);
+}
+
+     public Produto findById(Long id) {
+        return produtoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
+    }
+
+    public void update(Produto produto) {
+        produtoRepository.save(produto); // Salva o produto atualizado no banco de dados
+    }
 }
