@@ -55,7 +55,10 @@
                     <td th:text="${produto.descricao}"></td>
                     <td th:text="${produto.preco}"></td>
                     <td th:text="${produto.quantidadeEstoque}"></td>
-                    <td> <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" >Editar</a></td>
+                    <td> 
+                        
+                        <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" >Editar</a></td>
+                    
                     
                      
                     <td>

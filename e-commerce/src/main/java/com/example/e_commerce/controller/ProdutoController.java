@@ -35,11 +35,12 @@ public class ProdutoController {
     }
     
     @PostMapping("/remover/{id}")
-public String removerProduto(@PathVariable Long id) {
-    produtoService.removerProduto(id);
-    return "redirect:/produtos";
-}
-  @GetMapping("/editar/{id}")
+    public String removerProduto(@PathVariable Long id) {
+        produtoService.removerProduto(id);
+        return "redirect:/produtos";
+    }
+    
+    @GetMapping("/editar/{id}")
     public String editarProduto(@PathVariable Long id, Model model) {
         Produto produto = produtoService.findById(id); // Busca o produto pelo ID
         model.addAttribute("produto", produto);
